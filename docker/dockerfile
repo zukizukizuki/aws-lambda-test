@@ -1,0 +1,30 @@
+#ベースのイメージを指定
+FROM ubuntu:20.04
+
+#timezone設定で固まらないように先に指定
+ENV TZ=Asia/Tokyo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+#apt updateを実行
+RUN apt update
+
+# curlとvimのインストール
+RUN apt install -y curl
+RUN apt install -y vim
+
+# node.js v16をインストール
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash
+RUN apt install -y nodejs
+
+# serverless Flameworkをインストール
+RUN npm install -g serverless@3.24.1
+
+# serverlessテンプレートの使用
+RUN serverless create --template aws-nodejs-ecma-script
+
+# ファイル移動
+RUN mv first.js /opt/
+RUN mv package.json /opt/
+RUN mv second.js /opt/
+RUN mv serverless.yml /opt/
+RUN mv webpack.config.js /opt/
