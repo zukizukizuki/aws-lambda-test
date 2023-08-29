@@ -14,27 +14,16 @@ data "archive_file" "lambda" {
 # __generated__ by Terraform
 resource "aws_lambda_function" "notify_cost_function" {
   architectures                  = ["x86_64"]
-  code_signing_config_arn        = null
-  description                    = null
   filename                       = "lambda_function_payload.zip"
   function_name                  = "Notify-AWS-Cost"
   handler                        = "lambda_function.lambda_handler"
-  # image_uri                      = null
-  kms_key_arn                    = null
-  layers                         = []
   memory_size                    = 128
   package_type                   = "Zip"
-  publish                        = null
   reserved_concurrent_executions = -1
   role                           = "arn:aws:iam::776811705601:role/NotifyCost"
   runtime                        = "python3.7"
-  # s3_bucket                      = null
-  # s3_key                         = null
-  # s3_object_version              = null
   skip_destroy                   = false
   source_code_hash               = "SX0jypJl6Q/LXreyOu2a+aNQ89cqgsV9AnM08urPHh4="
-  tags                           = {}
-  tags_all                       = {}
   timeout                        = 6
   environment {
     variables = {
