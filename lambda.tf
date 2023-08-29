@@ -1,6 +1,3 @@
-# __generated__ by Terraform
-# Please review these resources and move them into your main configuration files.
-
 data "aws_ssm_parameter" "lambda_slack_webhook" {
   name = "lambda_slack_webhook"
 }
@@ -11,7 +8,6 @@ data "archive_file" "lambda" {
   output_path = "lambda_function_payload.zip"
 }
 
-# __generated__ by Terraform
 resource "aws_lambda_function" "notify_cost_function" {
   architectures                  = ["x86_64"]
   filename                       = "lambda_function_payload.zip"
@@ -38,14 +34,12 @@ resource "aws_lambda_function" "notify_cost_function" {
   }
 }
 
-# __generated__ by Terraform from "arn:aws:iam::776811705601:policy/NotifyCostLambdaToSlack"
 resource "aws_iam_policy" "notify_cost_policy" {
   name        = "NotifyCostLambdaToSlack"
   path        = "/"
   policy      = "{\"Statement\":[{\"Action\":\"ce:GetCostAndUsage\",\"Effect\":\"Allow\",\"Resource\":\"*\",\"Sid\":\"VisualEditor0\"}],\"Version\":\"2012-10-17\"}"
 }
 
-# __generated__ by Terraform from "NotifyCost"
 resource "aws_iam_role" "notify_cost_role" {
   assume_role_policy    = "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}"
   description           = "Allows Lambda functions to call AWS services on your behalf."
