@@ -5,12 +5,18 @@ data "aws_ssm_parameter" "lambda_slack_webhook" {
   name = "lambda_slack_webhook"
 }
 
+data "archive_file" "lambda" {
+  type        = "zip"
+  source_file = "lambda_function.py"
+  output_path = "lambda_function_payload.zip"
+}
+
 # __generated__ by Terraform
 resource "aws_lambda_function" "notify_cost_function" {
   architectures                  = ["x86_64"]
   code_signing_config_arn        = null
   description                    = null
-  filename                       = "lambda_function.py"
+  filename                       = "lambda_function_payload.zip"
   function_name                  = "Notify-AWS-Cost"
   handler                        = "lambda_function.lambda_handler"
   # image_uri                      = null
