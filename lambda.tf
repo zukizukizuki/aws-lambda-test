@@ -51,13 +51,9 @@ resource "aws_lambda_function" "notify_cost_function" {
 
 # __generated__ by Terraform from "arn:aws:iam::776811705601:policy/NotifyCostLambdaToSlack"
 resource "aws_iam_policy" "notify_cost_policy" {
-  description = null
   name        = "NotifyCostLambdaToSlack"
-  name_prefix = null
   path        = "/"
   policy      = "{\"Statement\":[{\"Action\":\"ce:GetCostAndUsage\",\"Effect\":\"Allow\",\"Resource\":\"*\",\"Sid\":\"VisualEditor0\"}],\"Version\":\"2012-10-17\"}"
-  tags        = {}
-  tags_all    = {}
 }
 
 # __generated__ by Terraform from "NotifyCost"
@@ -68,9 +64,5 @@ resource "aws_iam_role" "notify_cost_role" {
   managed_policy_arns   = ["arn:aws:iam::776811705601:policy/NotifyCostLambdaToSlack"]
   max_session_duration  = 3600
   name                  = "NotifyCost"
-  name_prefix           = null
   path                  = "/"
-  permissions_boundary  = null
-  tags                  = {}
-  tags_all              = {}
 }
