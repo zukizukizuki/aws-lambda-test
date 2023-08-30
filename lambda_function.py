@@ -97,12 +97,12 @@ def get_message(total_billing: dict, service_billings: list) -> (str, str):
     return title, '\n'.join(detail)
 
     # http://requests-docs-ja.readthedocs.io/en/latest/user/quickstart/
-    try:
-        response = requests.post(SLACK_WEBHOOK_URL, data=json.dumps(payload))
-    except requests.exceptions.RequestException as e:
-        print(e)
-    else:
-        print(response.status_code)
+    # try:
+    #     response = requests.post(SLACK_WEBHOOK_URL, data=json.dumps(payload))
+    # except requests.exceptions.RequestException as e:
+    #     print(e)
+    # else:
+    #     print(response.status_code)
 
 def post_slack(title: str, detail: str) -> None:
     # Slack通知内容の作成
