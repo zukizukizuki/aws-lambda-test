@@ -4,13 +4,13 @@ data "aws_ssm_parameter" "lambda_slack_webhook" {
 
 data "archive_file" "lambda" {
   type        = "zip"
-  source_file = "lambda_function.py"
-  output_path = "lambda_function_payload.zip"
+  source_file = "src/lambda_function.py"
+  output_path = "src/lambda_function_payload.zip"
 }
 
 resource "aws_lambda_function" "notify_cost_function" {
   architectures                  = ["x86_64"]
-  filename                       = "lambda_function_payload.zip"
+  filename                       = "src/lambda_function_payload.zip"
   function_name                  = "Notify-AWS-Cost"
   handler                        = "lambda_function.lambda_handler"
   memory_size                    = 128

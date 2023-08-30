@@ -2,9 +2,9 @@ name: python-test
 
 on: [pull_request]
 
-# defaults:
-#   run:
-#     working-directory: aws-lambda-test
+defaults:
+  run:
+    working-directory: src
 
 jobs:
   build:
