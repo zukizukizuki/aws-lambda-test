@@ -6,7 +6,6 @@ from datetime import datetime, timedelta, date
 
 SLACK_WEBHOOK_URL = os.environ['lambda_slack_webhook']
 
-
 def lambda_handler(event, context) -> None:
 
     # CostEXp;prer
