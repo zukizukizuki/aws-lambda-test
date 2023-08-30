@@ -1,11 +1,6 @@
 name: python
 
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - '**.py'
+on: [pull_request]
 
 # defaults:
 #   run:
