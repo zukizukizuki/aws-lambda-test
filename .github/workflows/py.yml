@@ -36,3 +36,5 @@ jobs:
       - name: run function
         run: |
           python3 lambda_function.py
+        env:
+            LAMBDA_SLACK_WEBHOOK: ${{ secrets.LAMBDA_SLACK_WEBHOOK }}
