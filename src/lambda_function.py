@@ -4,7 +4,8 @@ import json
 import requests
 from datetime import datetime, timedelta, date
 
-SLACK_WEBHOOK_URL = os.environ['lambda_slack_webhook']
+SLACK_WEBHOOK_URL = os.environ['LAMBDA_SLACK_WEBHOOK']
+# SLACK_WEBHOOK_URL = os.environ['lambda_slack_webhook']
 
 def lambda_handler(event, context) -> None:
 
