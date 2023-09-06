@@ -1,5 +1,5 @@
-data "aws_ssm_parameter" "lambda_slack_webhook" {
-  name = "lambda_slack_webhook"
+data "aws_ssm_parameter" "LAMBDA_SLACK_WEBHOOK" {
+  name = "LAMBDA_SLACK_WEBHOOK"
 }
 
 data "archive_file" "lambda" {
@@ -23,7 +23,7 @@ resource "aws_lambda_function" "notify_cost_function" {
   timeout                        = 6
   environment {
     variables = {
-      lambda_slack_webhook = data.aws_ssm_parameter.lambda_slack_webhook.value
+      LAMBDA_SLACK_WEBHOOK = data.aws_ssm_parameter.LAMBDA_SLACK_WEBHOOK.value
     }
   }
   ephemeral_storage {
