@@ -9,6 +9,7 @@ env:
   TF_VERSION: "1.4.6"
   TF_VAR_aws_account_id: ${{ secrets.AWS_ACCOUNT_ID }}
   TF_VAR_aws_region: "ap-northeast-1"
+
 permissions:
   id-token: write   # This is required for requesting the JWT
   contents: read    # This is required for actions/checkout
