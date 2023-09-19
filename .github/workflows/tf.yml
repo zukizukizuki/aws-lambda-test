@@ -1,4 +1,4 @@
-name: 'cicd-actions'
+name: 'terraform-actions'
 on: [pull_request]
 
 env:
@@ -15,7 +15,7 @@ permissions:
   contents: read    # This is required for actions/checkout
 
 jobs:
-  ci:
+  terraform-ci:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
