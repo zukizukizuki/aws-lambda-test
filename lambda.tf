@@ -35,9 +35,9 @@ resource "aws_lambda_function" "notify_cost_function" {
 }
 
 resource "aws_iam_policy" "notify_cost_policy" {
-  name        = "NotifyCostLambdaToSlack"
-  path        = "/"
-  policy      = "{\"Statement\":[{\"Action\":\"ce:GetCostAndUsage\",\"Effect\":\"Allow\",\"Resource\":\"*\",\"Sid\":\"VisualEditor0\"}],\"Version\":\"2012-10-17\"}"
+  name   = "NotifyCostLambdaToSlack"
+  path   = "/"
+  policy = "{\"Statement\":[{\"Action\":\"ce:GetCostAndUsage\",\"Effect\":\"Allow\",\"Resource\":\"*\",\"Sid\":\"VisualEditor0\"}],\"Version\":\"2012-10-17\"}"
 }
 
 resource "aws_iam_role" "notify_cost_role" {
