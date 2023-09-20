@@ -1,5 +1,9 @@
-name: 'terraform-actions'
-on: [pull_request]
+name: 'terraform-cd'
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
 
 env:
   AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
@@ -37,11 +41,5 @@ jobs:
       - name: Init
         run: terraform init -upgrade -no-color
 
-      - name: Check format
-        run: terraform fmt -check -recursive
-
-      - name: Check validate
-        run: terraform validate
-
-      - name: Plan
-        run: terraform plan -no-color -input=false
+      - name: Apply
+        run: terraform apply -auto-approve -no-color
