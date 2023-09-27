@@ -19,7 +19,7 @@ permissions:
   contents: read    # This is required for actions/checkout
 
 jobs:
-  terraform-ci:
+  terraform-cd:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
